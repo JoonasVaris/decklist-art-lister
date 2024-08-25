@@ -19,7 +19,7 @@ function main() {
         `https://api.scryfall.com/cards/search?order=released&q=%21%22${card.replace(
           /\s/g,
           "+"
-        )}%22+include%3Aextras+game%3Apaper+-is%3Aoversized&unique=prints`,
+        )}%22+include%3Aextras+game%3Apaper+-is%3Aoversized+legal%3Avintage&unique=prints`,
         { headers: { Accept: "application/json" } }
       );
       if (!res.ok) {
