@@ -1,0 +1,14 @@
+{
+  "name": "decklist-art-lister",
+  "version": "0.0.0",
+  "description": "fetches different art versions of cards from scryfall api",
+  "scripts": {
+    "dev": "rm -rf .cache && parcel \"src/*.html\"",
+    "build": "parcel build \"src/*.html\""
+  },
+  "author": "Joonas Varis",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.9.3"
+  }
+}

@@ -1,0 +1,27 @@
+#results {
+  display: flex;
+  flex-direction: column;
+}
+
+#results div {
+  display: flex;
+}
+
+.card {
+  width: 150px;
+  height: 250px;
+  flex-direction: column;
+}
+
+.card span {
+  font-size: 12px;
+}
+
+.card .image {
+  width: 146px;
+  height: 204px;
+}
+
+.not-found {
+  background-color: red;
+}

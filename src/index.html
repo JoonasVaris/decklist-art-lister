@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Version fetcher</title>
+    <meta name="referrer" content="no-referrer" />
+    <script type="module" src="app.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <p>Instructions:</p>
+    <p>
+      -Export plain decklist, in moxfield More > Export > Copy for MTGO (each
+      card on own row)
+    </p>
+    <p>-Paste decklists in field</p>
+    <p>-Fetch versions</p>
+    <p>-Profit</p>
+    <textarea
+      rows="4"
+      placeholder="paste decklist here"
+      cols="100"
+      id="deck1"
+    ></textarea>
+    <button id="fetch">Fetch</button>
+    <div id="results"></div>
+  </body>
+</html>
