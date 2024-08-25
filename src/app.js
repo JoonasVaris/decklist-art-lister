@@ -26,10 +26,17 @@ function getFoilCondition() {
   }
 }
 
+const basics = ["mountain", "swamp", "forest", "plains", "island"];
+
 function main() {
   const decklist = getDecklist("deck1");
   decklist.forEach(async (card, index) => {
     setTimeout(async () => {
+      const skipBasics = document.querySelector("#basics")?.checked;
+      if (skipBasics && basics.includes(card.toLowerCase())) {
+        return;
+      }
+
       const res = await fetch(
         `https://api.scryfall.com/cards/search?order=released&q=%21%22${card.replace(
           /\s/g,
