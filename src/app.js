@@ -11,6 +11,21 @@ function getDecklist(id) {
   return deck;
 }
 
+function getFoilCondition() {
+  const foil = document.querySelector("#foil")?.checked;
+  const nonFoil = document.querySelector("#nonfoil")?.checked;
+
+  if (foil && nonFoil) {
+    return "";
+  } else if (foil) {
+    return "+is%3Afoil";
+  } else if (nonFoil) {
+    return "+is%3Anonfoil";
+  } else {
+    return "";
+  }
+}
+
 function main() {
   const decklist = getDecklist("deck1");
   decklist.forEach(async (card, index) => {
@@ -19,7 +34,7 @@ function main() {
         `https://api.scryfall.com/cards/search?order=released&q=%21%22${card.replace(
           /\s/g,
           "+"
-        )}%22+include%3Aextras+game%3Apaper+-is%3Aoversized+legal%3Avintage&unique=prints`,
+        )}%22+include%3Aextras+game%3Apaper+-is%3Aoversized+legal%3Avintage${getFoilCondition()}&unique=prints`,
         { headers: { Accept: "application/json" } }
       );
       if (!res.ok) {
@@ -65,6 +80,13 @@ function main() {
         prices.innerHTML = `${card.prices.eur ?? "[--]"} ${
           card.prices.eur_foil ?? "[--]"
         }`;
+
+        if (card.purchase_uris?.cardmarket) {
+          const cmLink = document.createElement("a");
+          cmLink.href = card.purchase_uris?.cardmarket;
+          cmLink.innerText = "cm";
+          prices.appendChild(cmLink);
+        }
 
         cardWrapper.appendChild(set);
         cardWrapper.appendChild(finishes);

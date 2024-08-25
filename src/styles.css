@@ -7,9 +7,13 @@
   display: flex;
 }
 
+#filters {
+  flex-direction: column;
+}
+
 .card {
   width: 150px;
-  height: 250px;
+  height: 265px;
   flex-direction: column;
 }
 
@@ -18,6 +22,8 @@
 }
 
 .card .image {
+  margin-top: auto; /* Push the image to the bottom */
+  align-self: flex-end; /* Align the image to the end (right) */
   width: 146px;
   height: 204px;
 }
